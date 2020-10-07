@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Splash(),
     );
   }
 }
@@ -113,5 +114,29 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+// splash screen
+class Splash extends StatelessWidget {
+  Widget logoView = Expanded(
+      child: Center(
+    child: Image(image: AssetImage('assets/logo.png'), width: 400, height: 400),
+  ));
+
+  Widget versionView = Container(
+    padding: const EdgeInsets.all(10),
+    child: Text("Version 1.0", softWrap: true),
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Container(
+      color: Colors.blue,
+      child: Column(
+        children: <Widget>[logoView, versionView],
+      ),
+    ));
   }
 }
