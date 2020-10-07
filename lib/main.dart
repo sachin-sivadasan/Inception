@@ -119,11 +119,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
 // splash screen
 class Splash extends StatelessWidget {
+  //  layout for logo
   Widget logoView = Expanded(
       child: Center(
-    child: Image(image: AssetImage('assets/logo.png'), width: 400, height: 400),
+    child: Image(image: AssetImage('assets/logo.png'), width: 200, height: 200),
   ));
 
+  // layout for version number
   Widget versionView = Container(
     padding: const EdgeInsets.all(10),
     child: Text("Version 1.0", softWrap: true),
