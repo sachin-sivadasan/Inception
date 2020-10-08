@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-10-06T20:01:24.741Z" agent="5.0 (Macintosh)" etag="yMRHTNRqwLeo1egor0p0" version="13.7.7" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-07T12:45:59.254Z" agent="5.0 (Macintosh)" etag="ogyXw3rrtULz8VScPIgk" version="13.7.7" type="github">
   <diagram id="ta6PBadzDdm5cl-u1WsI" name="Page-1">
-    <mxGraphModel dx="1013" dy="806" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1013" dy="726" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -53,8 +53,8 @@
             <mxPoint x="630" y="920" as="targetPoint" />
             <Array as="points">
               <mxPoint x="490" y="140" />
-              <mxPoint x="820" y="140" />
-              <mxPoint x="820" y="705" />
+              <mxPoint x="840" y="140" />
+              <mxPoint x="840" y="705" />
               <mxPoint x="670" y="705" />
               <mxPoint x="670" y="913" />
             </Array>
@@ -65,6 +65,15 @@
         </mxCell>
         <mxCell id="POKG0Q2TSCIZMKV6Gm3p-19" value="Digital Converter" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="590" y="175" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-110" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#006658;fillColor=#21C0A5;fontColor=#5C5C5C;" edge="1" parent="1" source="POKG0Q2TSCIZMKV6Gm3p-23" target="POKG0Q2TSCIZMKV6Gm3p-98">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="245" />
+              <mxPoint x="820" y="620" />
+              <mxPoint x="170" y="620" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="POKG0Q2TSCIZMKV6Gm3p-23" value="1024" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="600" y="230" width="180" height="30" as="geometry" />
@@ -115,7 +124,7 @@
           <mxGeometry x="600" y="210" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="POKG0Q2TSCIZMKV6Gm3p-83" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="360" y="690" width="200" height="360" as="geometry" />
+          <mxGeometry x="360" y="690" width="200" height="370" as="geometry" />
         </mxCell>
         <mxCell id="POKG0Q2TSCIZMKV6Gm3p-84" value="Settings" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="360" y="690" width="200" height="30" as="geometry" />
@@ -129,8 +138,38 @@
         <mxCell id="POKG0Q2TSCIZMKV6Gm3p-88" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.back;dashPattern=1 1;" vertex="1" parent="1">
           <mxGeometry x="370" y="699.75" width="15" height="10.5" as="geometry" />
         </mxCell>
-        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-92" value="Converter" style="text;html=1;strokeColor=#3A5431;fillColor=#6d8764;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
+        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-92" value="Settings" style="text;html=1;strokeColor=#3A5431;fillColor=#6d8764;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
           <mxGeometry x="360" y="1070" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-98" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=1 1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="685" width="200" height="375" as="geometry" />
+        </mxCell>
+        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-99" value="Digital Converter" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="685" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-100" value="1024" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="740" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-101" value="GB" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="800" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-102" value="" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=1 1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="845" width="180" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-103" value="1 GB" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;dashPattern=1 1;" vertex="1" parent="1">
+          <mxGeometry x="105" y="852.5" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-104" value="Number Pad" style="text;html=1;strokeColor=#3A5431;fillColor=#6d8764;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1070" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-105" value="To" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;sketch=0;fontColor=#5C5C5C;" vertex="1" parent="1">
+          <mxGeometry x="70" y="780" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-106" value="From" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;sketch=0;fontColor=#5C5C5C;" vertex="1" parent="1">
+          <mxGeometry x="80" y="720" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="POKG0Q2TSCIZMKV6Gm3p-109" value="" style="html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;shadow=0;dashed=0;strokeWidth=2;shape=mxgraph.ios7.misc.number_pad;strokeWidth=1;rounded=1;glass=1;sketch=1;fillColor=#ffffff;fontColor=#5C5C5C;" vertex="1" parent="1">
+          <mxGeometry x="70" y="900" width="200" height="160" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

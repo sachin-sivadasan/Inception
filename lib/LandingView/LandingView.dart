@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../ByteConverterView/ByteConverterView.dart';
 
 class LandingView extends StatelessWidget {
   @override
@@ -10,7 +9,7 @@ class LandingView extends StatelessWidget {
         title: Text('Home Sweet Home'),
       ),
       body: Container(
-          padding: EdgeInsets.all(16.0) ,
+           padding: EdgeInsets.all(16.0) ,
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
