@@ -10,24 +10,24 @@ class LandingView extends StatelessWidget {
         title: Text('Home Sweet Home'),
       ),
       body: Container(
+          padding: EdgeInsets.all(16.0) ,
           child: Center(
-        child: IntrinsicWidth(
             child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FlatButton(
-              child: Text('conerter =>'),
-              color: Colors.blue,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ByteConverterView()),
-                );
-              },
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FlatButton(
+                  child: Text('Byte Converter'),
+                  color: Colors.blue,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ByteConverterView()),
+                    );
+                  },
+                ),
+              ],
             ),
-          ],
-        )),
       )),
     );
   }
