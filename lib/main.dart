@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-// import './SplashScreen/SplashScreen.dart';
+ import './SplashScreen/SplashScreen.dart';
 import './LandingView/LandingView.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: LandingView(),
+      home: SplashScreen(),
     );
   }
 }
