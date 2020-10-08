@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 // import './SplashScreen/SplashScreen.dart';
-import './LandingView/LandingView.dart';
+// import './LandingView/LandingView.dart';
+import './ByteConverterView/ByteConverterView.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: LandingView(),
+      home: ByteConverterView(),
     );
   }
 }
