@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../Components/Button/button.dart';
+import '../../widgets/Button/button.dart';
 
 class SettingsView extends StatelessWidget {
   @override
