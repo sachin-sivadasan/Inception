@@ -9,8 +9,25 @@ class LandingView extends StatelessWidget {
         title: Text('Home Sweet Home'),
       ),
       body: Container(
-        child: Text('I am the body not bra Body'),
-      ),
+           padding: EdgeInsets.all(16.0) ,
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FlatButton(
+                  child: Text('Byte Converter'),
+                  color: Colors.blue,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ByteConverterView()),
+                    );
+                  },
+                ),
+              ],
+            ),
+      )),
     );
   }
 }
