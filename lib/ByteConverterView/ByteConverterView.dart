@@ -6,12 +6,6 @@ class ByteConverterView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Byte Converter'),
-        leading: FlatButton(
-          child: Text('<='),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
       ),
       body: Text('covertarane converter'),
     );

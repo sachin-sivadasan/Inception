@@ -1,10 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../ByteConverterView/ByteConverterView.dart';
+import '../Components/Button/button.dart';
 
 class LandingView extends StatelessWidget {
+  goTo(BuildContext ctx) {
+    Navigator.push(
+      ctx,
+      MaterialPageRoute(builder: (ctx) => ByteConverterView()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    var button = Button(() => goTo(context), 'I am a component');
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Sweet Home'),
@@ -17,15 +26,10 @@ class LandingView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FlatButton(
-              child: Text('conerter =>'),
-              color: Colors.blue,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ByteConverterView()),
-                );
-              },
-            ),
+                child: Text('conerter =>'),
+                color: Colors.blue,
+                onPressed: () => goTo(context)),
+            button
           ],
         )),
       )),
