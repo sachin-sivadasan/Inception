@@ -21,9 +21,7 @@ class LandingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var button = Button(() => goTo(context), 'I am a component', 'raised');
-    var settingsBUtton =
-        Button(() => goToSettings(context), 'Settings', 'raised');
+    var button = Button(() => goTo(context), 'I am a component', 'elivated');
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Sweet Home'),
@@ -34,7 +32,7 @@ class LandingView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [button, settingsBUtton],
+              children: [button],
             ),
           )),
     );
