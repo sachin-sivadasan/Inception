@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 // import './SplashScreen/SplashScreen.dart';
 import './LandingView/LandingView.dart';
-// import './SettingsView/SettingsView.dart';
 
 void main() {
   runApp(MyApp());

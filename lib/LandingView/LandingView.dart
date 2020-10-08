@@ -12,9 +12,16 @@ class LandingView extends StatelessWidget {
     );
   }
 
+  goToSettings(BuildContext ctx) {
+    Navigator.push(
+      ctx,
+      MaterialPageRoute(builder: (ctx) => SettingsView()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    var button = Button(() => goTo(context), 'I am a component');
+    var button = Button(() => goTo(context), 'I am a component', 'elivated');
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Sweet Home'),
@@ -26,13 +33,7 @@ class LandingView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FlatButton(
-                    child: Text('Byte Converter'),
-                    color: Colors.blue,
-                    onPressed: () => goTo(context)),
-                button
-              ],
+              children: [button],
             ),
       )),
     );
