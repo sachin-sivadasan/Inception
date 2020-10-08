@@ -6,6 +6,31 @@ import 'package:url_launcher/url_launcher.dart';
 
 class SettingsView extends StatelessWidget {
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Settings'),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ElevatedButton(
+              child: Text("Share"),
+              onPressed: onShareClick,
+            ),
+            ElevatedButton(
+              child: Text("Add Review"),
+              onPressed: onReviewClick,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   // click listener for share button.
   onShareClick() async {
     print("clicked share button");
@@ -41,28 +66,4 @@ class SettingsView extends StatelessWidget {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Settings'),
-      ),
-      body: Container(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ElevatedButton(
-              child: Text("Share"),
-              onPressed: onShareClick,
-            ),
-            ElevatedButton(
-              child: Text("Add Review"),
-              onPressed: onReviewClick,
-            )
-          ],
-        ),
-      ),
-    );
-  }
 }
