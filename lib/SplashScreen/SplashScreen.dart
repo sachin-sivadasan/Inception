@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import '../LandingView/LandingView.dart';
 
 // splash screen
 class SplashScreen extends StatelessWidget {
@@ -17,6 +18,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    launchLandingView(context);
     return Scaffold(
         body: Container(
       color: Colors.blue,
@@ -24,5 +26,11 @@ class SplashScreen extends StatelessWidget {
         children: <Widget>[logoView, versionView],
       ),
     ));
+  }
+
+  launchLandingView(BuildContext context) {
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LandingView()));
+    });
   }
 }
