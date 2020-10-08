@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../ByteConverterView/ByteConverterView.dart';
+import '../SettingsView/SettingsView.dart';
 
 class LandingView extends StatelessWidget {
   @override
@@ -8,9 +9,10 @@ class LandingView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Sweet Home'),
+        actions: [settingsAction(context)],
       ),
       body: Container(
-           padding: EdgeInsets.all(16.0) ,
+          padding: EdgeInsets.all(16.0),
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -22,13 +24,32 @@ class LandingView extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ByteConverterView()),
+                      MaterialPageRoute(
+                          builder: (context) => ByteConverterView()),
                     );
                   },
                 ),
               ],
             ),
-      )),
+          )),
     );
+  }
+
+  //  layout for logo
+  Widget settingsAction(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.all(4.0),
+        child: Center(
+          child: IconButton(
+              icon: Image(
+                  image: AssetImage('assets/settings_white.png')),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => SettingsView()),
+                );
+              }),
+        ));
   }
 }
