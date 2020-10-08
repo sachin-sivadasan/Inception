@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../ByteConverterView/ByteConverterView.dart';
 import '../Components/Button/button.dart';
 import '../SettingsView/SettingsView.dart';
+import '../Components/ImageButton/image_button.dart';
 
 class LandingView extends StatelessWidget {
   goTo(BuildContext ctx) {
@@ -35,25 +36,23 @@ class LandingView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [button],
             ),
-      )),
+          )),
+    );
+  }
+
+  launchSettings(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SettingsView()),
     );
   }
 
   //  layout for logo
   Widget settingsAction(BuildContext context) {
-    return Padding(
-        padding: EdgeInsets.all(4.0),
-        child: Center(
-          child: IconButton(
-              icon: Image(
-                  image: AssetImage('assets/settings_white.png')),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => SettingsView()),
-                );
-              }),
-        ));
+    return ImageButton(
+      padding: EdgeInsets.all(8.0),
+      path: 'assets/settings_white.png',
+      onPress: () => launchSettings(context),
+    );
   }
 }
