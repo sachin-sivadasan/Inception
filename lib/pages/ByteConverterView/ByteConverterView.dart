@@ -8,8 +8,16 @@ class ConverterView extends StatefulWidget {
 
 class _ConverterViewState extends State<ConverterView> {
   @override
+  var option = 'MB';
   void initState() {
     super.initState();
+  }
+
+  onPressOption() {
+    print('>>>>>>>');
+    this.setState(() {
+      option = 'Gb';
+    });
   }
 
   @override
@@ -18,7 +26,7 @@ class _ConverterViewState extends State<ConverterView> {
         appBar: AppBar(
           title: Text('Byte Converter'),
         ),
-        body: TextBar(null, null)
+        body: TextBar(onPressOption, option)
         // body: Container(
         //   padding: EdgeInsets.all(16.0),
         //   child: Column(
