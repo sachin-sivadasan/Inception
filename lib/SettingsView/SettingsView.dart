@@ -24,6 +24,7 @@ class SettingsView extends StatelessWidget {
   }
 
   handleReview() async {
+    // TODO:- should handle iOS to open App Store
     const url = 'market://details?id=com.flipkart.android';
     if (await canLaunch(url)) {
       await launch(url);
