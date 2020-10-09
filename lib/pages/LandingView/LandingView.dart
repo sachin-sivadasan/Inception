@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../Components/Button/button.dart';
-import '../Components/ImageButton/image_button.dart';
+import '../../widgets/Button/button.dart';
+import '../../widgets/ImageButton/image_button.dart';
 
 class LandingView extends StatelessWidget {
   goTo(BuildContext ctx) {

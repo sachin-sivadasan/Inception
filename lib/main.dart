@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import './SplashScreen/SplashScreen.dart';
-import './LandingView/LandingView.dart';
-import './SettingsView/SettingsView.dart';
-import './ByteConverterView/ByteConverterView.dart';
+import './pages/SplashScreen/SplashScreen.dart';
+import './pages/LandingView/LandingView.dart';
+import './pages/SettingsView/SettingsView.dart';
+import './pages/ByteConverterView/ByteConverterView.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       home: SplashScreen(),
       routes: {
         '/landingView': (context) => LandingView(),
-        '/converter': (context) => ByteConverterView(),
+        '/converter': (context) => ConverterView(),
         '/settings': (context) => SettingsView(),
       },
     );
