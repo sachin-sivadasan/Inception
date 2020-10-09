@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import '../LandingView/LandingView.dart';
 
 // splash screen
 class SplashScreen extends StatelessWidget {
   //  layout for logo
   final Widget logoView = Expanded(
-      child: Center(
-    child: Image(image: AssetImage('assets/logo.png'), width: 200, height: 200),
-  ));
+    child: Center(
+      child:
+          Image(image: AssetImage('assets/logo.png'), width: 200, height: 200),
+    ),
+  );
 
   // layout for version number
   final Widget versionView = Container(
@@ -20,17 +21,18 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     launchLandingView(context);
     return Scaffold(
-        body: Container(
-      color: Colors.blue,
-      child: Column(
-        children: <Widget>[logoView, versionView],
+      body: Container(
+        color: Colors.blue,
+        child: Column(
+          children: <Widget>[logoView, versionView],
+        ),
       ),
-    ));
+    );
   }
 
   launchLandingView(BuildContext context) {
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LandingView()));
+      Navigator.pushReplacementNamed(context, '/landingView');
     });
   }
 }

@@ -6,25 +6,6 @@ import 'package:url_launcher/url_launcher.dart';
 import '../Components/Button/button.dart';
 
 class SettingsView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Settings'),
-      ),
-      body: Container(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Button(onShareClick, 'Share', 'elevated'),
-            Button(onReviewClick, 'Add Review', 'elevated')
-          ],
-        ),
-      ),
-    );
-  }
-
   // click listener for share button.
   onShareClick() async {
     print("clicked share button");
@@ -43,8 +24,7 @@ class SettingsView extends StatelessWidget {
   }
 
   handleReview() async {
-    const url =
-        'market://details?id=com.flipkart.android'; // TODO:- should handle iOS to open App Store.
+    const url = 'market://details?id=com.flipkart.android';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -60,5 +40,24 @@ class SettingsView extends StatelessWidget {
             toastLength: Toast.LENGTH_SHORT);
       }
     }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Settings'),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Button(onShareClick, 'Share', 'elevated'),
+            Button(onReviewClick, 'Add Review', 'elevated')
+          ],
+        ),
+      ),
+    );
   }
 }
