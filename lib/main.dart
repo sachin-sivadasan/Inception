@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       home: SplashScreen(),
       routes: {
         '/landingView': (context) => LandingView(),
-        '/converter': (context) => ByteConverterView(),
+        '/converter': (context) => ConverterView(),
         '/settings': (context) => SettingsView(),
       },
     );
