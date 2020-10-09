@@ -27,14 +27,15 @@ class LandingView extends StatelessWidget {
         title: Text('Home Sweet Home'),
       ),
       body: Container(
-          padding: EdgeInsets.all(16.0),
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [button],
-            ),
-          )),
+        padding: EdgeInsets.all(16.0),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [button],
+          ),
+        ),
+      ),
     );
   }
 }

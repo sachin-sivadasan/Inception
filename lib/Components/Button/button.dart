@@ -11,37 +11,41 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     if (type == 'texted') {
       return Container(
-          child: IntrinsicWidth(
-              child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextButton(
-            onPressed: onpress,
-            child: Text(text),
+        child: IntrinsicWidth(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: onpress,
+                child: Text(text),
+              ),
+            ],
           ),
-        ],
-      )));
+        ),
+      );
     }
 
     if (type == 'outlined') {
       return Container(
-          child: IntrinsicWidth(
-              child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          OutlinedButton(
-            onPressed: onpress,
-            child: Text(text),
+        child: IntrinsicWidth(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              OutlinedButton(
+                onPressed: onpress,
+                child: Text(text),
+              ),
+            ],
           ),
-        ],
-      )));
+        ),
+      );
     }
     return Container(
-        padding: EdgeInsets.all(16.0),
-        child: IntrinsicWidth(
-            child: Column(
+      padding: EdgeInsets.all(16.0),
+      child: IntrinsicWidth(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -50,6 +54,8 @@ class Button extends StatelessWidget {
               child: Text(text),
             ),
           ],
-        )));
+        ),
+      ),
+    );
   }
 }
