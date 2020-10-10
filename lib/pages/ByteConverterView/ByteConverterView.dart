@@ -12,17 +12,18 @@ class ConverterView extends StatefulWidget {
 }
 
 class _ConverterViewState extends State<ConverterView> {
-  var option = 'MB';
-  String _currentValue = '10000000000';
-  String _selectedTypeFrom = 'KB';
+  BigInt _currentValue = BigInt.from(0);
+  String _selectedTypeFrom = 'Bytes';
   String _currentResult = '';
   String _selectedTypeTo = 'KB';
-  List<String> entries = <String>['KB', 'MB', 'GB'];
+  List<String> entries = <String>['Bytes', 'KB', 'MB', 'GB'];
   List<UnitModel> _results = <UnitModel>[];
 
-  onPressOption() {
+  onPressOption(String type, String value) {
     this.setState(() {
-      option = 'GB';
+      _selectedTypeFrom = type;
+      _currentValue = BigInt.from(int.parse(value));
+      calculateResult();
     });
   }
 
@@ -50,8 +51,8 @@ class _ConverterViewState extends State<ConverterView> {
 
   /* calculating result */
   calculateResult() {
-//    var from = (_currentValue.isEmpty) ? 0 : int.parse(_currentValue);
-    var convertModel = ConvertModel(BigInt.from(40404040404040), _selectedTypeTo);
+    print('calculating result $_currentValue $_selectedTypeFrom $_selectedTypeTo');
+    var convertModel = ConvertModel(_currentValue, _selectedTypeFrom, _selectedTypeTo);
     String result = convertModel.toSelectedConvertion();
     List<UnitModel> allResults = convertModel.toAllConvertions();
     setState(() {
@@ -73,10 +74,11 @@ class _ConverterViewState extends State<ConverterView> {
             children: [
               Container(
                   child: TextBar(
-                      onTap: onPressOption, option: option, leftText: 'From')),
+                      onSelectItem: onPressOption, type: _selectedTypeFrom, option: _currentValue.toString(), leftText: 'From')),
               Container(
                   margin: EdgeInsets.only(top: 40),
                   child: DropDownView(
+                      bgColor: Colors.grey.shade200,
                       entries: entries,
                       selected: _selectedTypeTo,
                       onItemSelected: (value) {
@@ -87,11 +89,11 @@ class _ConverterViewState extends State<ConverterView> {
                       })),
               Container(
                 width: _media.width,
-                margin: EdgeInsets.only(top: 10.0),
+                margin: EdgeInsets.only(top: 12.0),
                 child: ResultText(_currentResult),
               ),
               Container(
-                  margin: EdgeInsets.only(top: 10.0),
+                  margin: EdgeInsets.only(top: 12.0),
                   height: 150,
                   child: listView())
             ],

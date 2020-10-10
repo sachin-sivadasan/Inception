@@ -23,8 +23,8 @@ class _UnitCardViewState extends State<UnitCardView> {
         borderRadius: BorderRadius.circular(8),
       ),
       child: Container(
-        width: (_media.width / 3) - 10,
-        padding: EdgeInsets.only(left: 30, right: 30, top: 30, bottom: 30),
+        width: (_media.width / 3),
+        padding: EdgeInsets.only(left: 8, top: 30, right: 8, bottom: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

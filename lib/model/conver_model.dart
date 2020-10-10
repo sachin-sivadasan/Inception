@@ -1,22 +1,27 @@
 import 'package:inception/model/unit_model.dart';
 
 class ConvertModel {
-  final BigInt inBytes;
+  final BigInt value;
   final String from;
+  final String to;
+  BigInt bytes = BigInt.from(0);
 
-  ConvertModel(this.inBytes, this.from);
+  ConvertModel(this.value, this.from, this.to);
 
   List<UnitModel> toAllConvertions() {
-//    if (inBytes <= 0)
-//      return <UnitModel>[
-//        UnitModel('KB', '0'),
-//        UnitModel('MB', '0'),
-//        UnitModel('GB', '0')
-//      ];
-    var kb = toKB(inBytes);
-    var mb = toMB(inBytes);
-    var gb = toGB(inBytes);
+    var bytes = convertToBytes(value);
+    print('$value $from converted to $bytes bytes');
+    if (bytes <= BigInt.from(0))
+      return <UnitModel>[
+        UnitModel('KB', '0'),
+        UnitModel('MB', '0'),
+        UnitModel('GB', '0')
+      ];
+    var kb = toKB(bytes);
+    var mb = toMB(bytes);
+    var gb = toGB(bytes);
     return <UnitModel>[
+      UnitModel('Bytes', bytes.toString()),
       UnitModel('KB', kb),
       UnitModel('MB', mb),
       UnitModel('GB', gb)
@@ -24,14 +29,23 @@ class ConvertModel {
   }
 
   String toSelectedConvertion() {
-    return '1024 $from';
+    var bytes = convertToBytes(value);
+    print('$value $from converted to $bytes bytes');
+    if(to == 'KB') return toKB(bytes);
+    else if(to == 'MB') return toMB(bytes);
+    else if(to == 'GB') return toGB(bytes);
+    return '$value Bytes';
   }
 
   toGB(BigInt bytes) {
-    if (bytes >= BigInt.from(1073741824))
-      return (bytes / BigInt.from(1073741824)).toStringAsFixed(2) + "";
-    else
-      return "0 GB";
+    try {
+      if (bytes >= BigInt.from(1073741824))
+            return (bytes / BigInt.from(1073741824)).toStringAsFixed(2) + "";
+          else
+            return "0 GB";
+    } catch (e) {
+      print(e);
+    }
   }
 
   toMB(BigInt bytes) {
@@ -50,6 +64,26 @@ class ConvertModel {
 
   toByte(BigInt bytes) {
     return (bytes).toString() + " byte";
+  }
+
+  convertToBytes(BigInt inBytes) {
+    print(' $from -  $to');
+    if(from == 'KB') return fromKB(inBytes);
+    else if(from == 'MB') return fromMB(inBytes);
+    else if(from == 'GB') return fromGB(inBytes);
+    else return inBytes;
+  }
+
+  fromKB(BigInt bytes) {
+    return bytes * BigInt.from(1024);
+  }
+
+  fromMB(BigInt bytes) {
+    return bytes * BigInt.from(1024 * 1024);
+  }
+
+  fromGB(BigInt bytes) {
+    return bytes * BigInt.from(1024 * 1024 * 1024);
   }
 
 //  function formatSizeUnits(bytes){

@@ -6,6 +6,7 @@ class ResultText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (value == null || value.isEmpty) return Container();
     return Material(
       elevation: 1.0,
       color: Colors.white,

@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:inception/model/conver_model.dart';
+import 'package:inception/widgets/DropDownView/drop_down.dart';
 
 class TextBar extends StatelessWidget {
-  final onTap;
+  final Function(String, String) onSelectItem;
   final leftText;
-  final String option;
-  TextBar({this.onTap, this.option, this.leftText});
+  String option = '';
+  String type = '';
+  TextBar({this.onSelectItem, this.type, this.option, this.leftText});
 
+  List<String> entries = <String>['Bytes', 'KB', 'MB', 'GB'];
   Widget getOptionWidget() {
+    print('option $option, type $type');
     if (option == null) return Container();
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        alignment: Alignment.center,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.grey[200],
-          borderRadius: BorderRadius.circular(6.0),
+    return Container(
+      margin: EdgeInsets.only(left: 10.0),
+      child: IntrinsicWidth(
+        child: DropDownView(
+          bgColor: Colors.grey.shade200,
+          entries: entries,
+          onItemSelected: (value) {
+            print('on item selected $value $option');
+            onSelectItem(value, option);
+          },
+          selected: type,
         ),
-        padding: EdgeInsets.only(left: 20.0, right: 20.0),
-        margin: EdgeInsets.only(left: 10.0),
-        constraints: BoxConstraints(minWidth: 80.0),
-        child: Text('$option ▼'),
       ),
     );
   }
@@ -34,7 +38,7 @@ class TextBar extends StatelessWidget {
         Container(
           padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
           child: VerticalDivider(
-            color: Colors.black,
+            color: Colors.grey.shade400,
           ),
         ),
       ],
@@ -61,6 +65,10 @@ class TextBar extends StatelessWidget {
                     disabledBorder: InputBorder.none),
                 keyboardType: TextInputType.phone,
                 style: TextStyle(fontSize: 16, color: Colors.red),
+                onChanged: (changed) {
+                  print('changed to $changed');
+                  onSelectItem(type, changed);
+                },
               ),
             ),
           ),
@@ -72,9 +80,12 @@ class TextBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60.0,
-      child: Row(
-        children: [textBox(), getOptionWidget()],
+      padding: EdgeInsets.all(0),
+      child: Container(
+        height: 50.0,
+        child: Row(
+          children: [textBox(), getOptionWidget()],
+        ),
       ),
     );
   }

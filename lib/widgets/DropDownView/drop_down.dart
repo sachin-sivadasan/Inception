@@ -4,15 +4,16 @@ class DropDownView extends StatefulWidget {
   final List<String> entries;
   final Function(String) onItemSelected;
   String selected;
+  Color bgColor;
 
-  DropDownView({this.entries, this.onItemSelected, this.selected});
+  DropDownView(
+      {this.entries, this.onItemSelected, this.selected, this.bgColor});
 
   @override
   _DropDownViewState createState() => _DropDownViewState();
 }
 
 class _DropDownViewState extends State<DropDownView> {
-
   List<DropdownMenuItem<String>> _dropdownItems;
 
   List<DropdownMenuItem<String>> getDropDownItems() {
@@ -34,8 +35,10 @@ class _DropDownViewState extends State<DropDownView> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 50,
       decoration: BoxDecoration(
-          color: Colors.grey[200], borderRadius: BorderRadius.circular(6.0)),
+          color: (widget.bgColor != null) ? widget.bgColor : Colors.grey[200],
+          borderRadius: BorderRadius.circular(6.0)),
       child: Padding(
           padding: EdgeInsets.all(8.0),
           child: DropdownButton(
