@@ -28,11 +28,11 @@ class _UnitCardViewState extends State<UnitCardView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(child: Text(widget.model.title)),
+            Expanded(child: Align(alignment: Alignment.center, child: Text(widget.model.result, textAlign: TextAlign.center,))),
             SizedBox(
               height: 10.0,
             ),
-            Text(widget.model.result)
+            Container(child: Text(widget.model.title)),
           ],
         ),
       ),
