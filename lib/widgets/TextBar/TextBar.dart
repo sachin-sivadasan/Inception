@@ -72,12 +72,9 @@ class TextBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.0),
-      child: Container(
-        height: 60.0,
-        child: Row(
-          children: [textBox(), getOptionWidget()],
-        ),
+      height: 60.0,
+      child: Row(
+        children: [textBox(), getOptionWidget()],
       ),
     );
   }
