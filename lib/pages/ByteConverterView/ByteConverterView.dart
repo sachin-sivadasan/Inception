@@ -30,29 +30,35 @@ class _ConverterViewState extends State<ConverterView> {
   Widget listView() {
     if (_results.isEmpty) return Container();
 
-    return ListView.builder(
-      itemCount: _results.length,
-      scrollDirection: Axis.horizontal,
-      itemBuilder: (BuildContext context, int index) {
-        return Padding(
-          padding: const EdgeInsets.only(right: 8),
-          child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  _selectedTypeTo = _results[index].title;
-                  calculateResult();
-                });
-              },
-              child: UnitCardView(_results[index])),
-        );
-      },
+    return Container(
+      height: 150,
+      child: ListView.builder(
+        padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+        itemCount: _results.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (BuildContext context, int index) {
+          return Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _selectedTypeTo = _results[index].title;
+                    calculateResult();
+                  });
+                },
+                child: UnitCardView(_results[index])),
+          );
+        },
+      ),
     );
   }
 
   /* calculating result */
   calculateResult() {
-    print('calculating result $_currentValue $_selectedTypeFrom $_selectedTypeTo');
-    var convertModel = ConvertModel(_currentValue, _selectedTypeFrom, _selectedTypeTo);
+    print(
+        'calculating result $_currentValue $_selectedTypeFrom $_selectedTypeTo');
+    var convertModel =
+        ConvertModel(_currentValue, _selectedTypeFrom, _selectedTypeTo);
     String result = convertModel.toSelectedConvertion();
     List<UnitModel> allResults = convertModel.toAllConvertions();
     setState(() {
@@ -69,33 +75,41 @@ class _ConverterViewState extends State<ConverterView> {
           title: Text('Byte Converter'),
         ),
         body: Container(
-          padding: EdgeInsets.all(16.0),
           child: Column(
             children: [
               Container(
-                  child: TextBar(
-                      onSelectItem: onPressOption, type: _selectedTypeFrom, option: _currentValue.toString(), leftText: 'From')),
-              Container(
-                  margin: EdgeInsets.only(top: 40),
-                  child: DropDownView(
-                      bgColor: Colors.grey.shade200,
-                      entries: entries,
-                      selected: _selectedTypeTo,
-                      onItemSelected: (value) {
-                        setState(() {
-                          _selectedTypeTo = value;
-                          calculateResult();
-                        });
-                      })),
-              Container(
-                width: _media.width,
-                margin: EdgeInsets.only(top: 12.0),
-                child: ResultText(_currentResult),
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Container(
+                        child: TextBar(
+                            onSelectItem: onPressOption,
+                            type: _selectedTypeFrom,
+                            option: _currentValue.toString(),
+                            leftText: 'From')),
+                    Container(
+                        margin: EdgeInsets.only(top: 40),
+                        child: DropDownView(
+                            bgColor: Colors.grey.shade200,
+                            entries: entries,
+                            selected: _selectedTypeTo,
+                            onItemSelected: (value) {
+                              setState(() {
+                                _selectedTypeTo = value;
+                                calculateResult();
+                              });
+                            })),
+                    Container(
+                      width: _media.width,
+                      margin: EdgeInsets.only(top: 12.0),
+                      child: ResultText(_currentResult),
+                    ),
+                  ],
+                ),
               ),
-              Container(
-                  margin: EdgeInsets.only(top: 12.0),
-                  height: 150,
-                  child: listView())
+              Expanded(
+                  child:
+                      Align(alignment: Alignment.topCenter, child: listView()))
             ],
           ),
         ));
