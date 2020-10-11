@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:inception/pages/CurrencyView/currency_converter_view.dart';
 import './pages/SplashScreen/SplashScreen.dart';
 import './pages/LandingView/LandingView.dart';
 import './pages/SettingsView/SettingsView.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/landingView': (context) => LandingView(),
         '/converter': (context) => ConverterView(),
+        '/currency': (context) => CurrencyConverterView(),
         '/settings': (context) => SettingsView(),
       },
     );

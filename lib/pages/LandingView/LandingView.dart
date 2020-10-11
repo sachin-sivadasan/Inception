@@ -7,6 +7,9 @@ class LandingView extends StatelessWidget {
   goTo(BuildContext ctx) {
     Navigator.pushNamed(ctx, '/converter');
   }
+  goToCurrencyView(BuildContext ctx) {
+    Navigator.pushNamed(ctx, '/currency');
+  }
 
   launchSettings(BuildContext context) {
     Navigator.pushNamed(context, '/settings');
@@ -24,6 +27,7 @@ class LandingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var button = Button(() => goTo(context), 'I am a component', 'elivated');
+    var currencyButton = Button(() => goToCurrencyView(context), 'Currency Converter', 'elivated');
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Sweet Home'),
@@ -35,7 +39,7 @@ class LandingView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [button],
+            children: [button, currencyButton],
           ),
         ),
       ),
