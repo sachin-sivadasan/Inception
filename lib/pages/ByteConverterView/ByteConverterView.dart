@@ -31,22 +31,19 @@ class _ConverterViewState extends State<ConverterView> {
     if (_results.isEmpty) return Container();
 
     return Container(
-      height: 150,
       child: ListView.builder(
         padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
         itemCount: _results.length,
-        scrollDirection: Axis.horizontal,
+        scrollDirection: Axis.vertical,
         itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _selectedTypeTo = _results[index].title;
-                    calculateResult();
-                  });
-                },
-                child: UnitCardView(_results[index])),
+          return GestureDetector(
+            onTap: () {
+              setState(() {
+                _selectedTypeTo = _results[index].title;
+                calculateResult();
+              });
+            },
+            child: UnitCardView(_results[index]),
           );
         },
       ),

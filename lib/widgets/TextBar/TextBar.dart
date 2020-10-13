@@ -50,7 +50,9 @@ class TextBar extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(left: 15.0),
         decoration: BoxDecoration(
-            color: Colors.grey[200], borderRadius: BorderRadius.circular(6.0)),
+          color: Colors.grey[200],
+          borderRadius: BorderRadius.circular(6.0),
+        ),
         child: Row(children: [
           leftLabel(),
           Expanded(
@@ -63,8 +65,9 @@ class TextBar extends StatelessWidget {
                     enabledBorder: InputBorder.none,
                     errorBorder: InputBorder.none,
                     disabledBorder: InputBorder.none),
-                keyboardType: TextInputType.phone,
-                style: TextStyle(fontSize: 16, color: Colors.red),
+                // keyboardType: TextInputType.phone,
+                textInputAction: TextInputAction.done,
+                style: TextStyle(fontSize: 16, color: Colors.black87),
                 onChanged: (changed) {
                   print('changed to $changed');
                   onSelectItem(type, changed);

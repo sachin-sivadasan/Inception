@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:inception/model/unit_model.dart';
 
 class UnitCardView extends StatefulWidget {
-
   UnitModel model;
 
   UnitCardView(this.model);
@@ -12,29 +11,45 @@ class UnitCardView extends StatefulWidget {
 }
 
 class _UnitCardViewState extends State<UnitCardView> {
-
   @override
   Widget build(BuildContext context) {
-    final _media = MediaQuery.of(context).size;
-    return Material(
-      elevation: 1.0,
-      color: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Container(
-        width: (_media.width / 3),
-        padding: EdgeInsets.only(left: 8, top: 30, right: 8, bottom: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(child: Align(alignment: Alignment.center, child: Text(widget.model.result, textAlign: TextAlign.center,))),
-            SizedBox(
-              height: 10.0,
-            ),
-            Container(child: Text(widget.model.title)),
-          ],
-        ),
+    Widget renderTitle() {
+      return Row(
+        children: [
+          Container(margin: EdgeInsets.only(right: 5.0), child: Text('From')),
+          Container(child: Text(widget.model.title)),
+        ],
+      );
+    }
+
+    Container renderResult() {
+      return Container(
+        alignment: Alignment.center,
+        margin: EdgeInsets.only(top: 5.0),
+        child: Text(widget.model.result),
+      );
+    }
+
+    var boxDecoration = BoxDecoration(
+        borderRadius: BorderRadius.circular(6.0),
+        color: Colors.blue[100],
+        gradient: LinearGradient(
+            colors: [Colors.blue[100], Colors.blue[300]],
+            begin: Alignment.bottomLeft,
+            end: Alignment.bottomRight),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 5,
+            color: Colors.black38,
+          ),
+        ]);
+
+    return Container(
+      margin: EdgeInsets.only(top: 10.0),
+      padding: EdgeInsets.all(10),
+      decoration: boxDecoration,
+      child: Column(
+        children: [renderTitle(), renderResult()],
       ),
     );
   }
