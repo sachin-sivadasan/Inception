@@ -9,7 +9,7 @@ class ResultText extends StatelessWidget {
     if (value == null || value.isEmpty) return Container();
     return Material(
       elevation: 1.0,
-      color: Colors.white,
+      color: Colors.grey[200],
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),

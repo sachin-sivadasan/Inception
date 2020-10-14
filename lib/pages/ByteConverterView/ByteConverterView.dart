@@ -31,8 +31,13 @@ class _ConverterViewState extends State<ConverterView> {
     if (_results.isEmpty) return Container();
 
     return Container(
+      padding: EdgeInsets.all(20.0),
+      margin: EdgeInsets.only(top: 10.0),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10), color: Colors.white),
       child: ListView.builder(
-        padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+        shrinkWrap: true,
+        // padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
         itemCount: _results.length,
         scrollDirection: Axis.vertical,
         itemBuilder: (BuildContext context, int index) {
@@ -72,10 +77,20 @@ class _ConverterViewState extends State<ConverterView> {
           title: Text('Byte Converter'),
         ),
         body: Container(
+          padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Colors.indigo[900], Colors.blue[800]],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter)),
           child: Column(
             children: [
               Container(
                 padding: EdgeInsets.all(16.0),
+                margin: EdgeInsets.only(bottom: 5.0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.white),
                 child: Column(
                   children: [
                     Container(
@@ -85,17 +100,18 @@ class _ConverterViewState extends State<ConverterView> {
                             option: _currentValue.toString(),
                             leftText: 'From')),
                     Container(
-                        margin: EdgeInsets.only(top: 40),
-                        child: DropDownView(
-                            bgColor: Colors.grey.shade200,
-                            entries: entries,
-                            selected: _selectedTypeTo,
-                            onItemSelected: (value) {
-                              setState(() {
-                                _selectedTypeTo = value;
-                                calculateResult();
-                              });
-                            })),
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: DropDownView(
+                          bgColor: Colors.grey.shade200,
+                          entries: entries,
+                          selected: _selectedTypeTo,
+                          onItemSelected: (value) {
+                            setState(() {
+                              _selectedTypeTo = value;
+                              calculateResult();
+                            });
+                          }),
+                    ),
                     Container(
                       width: _media.width,
                       margin: EdgeInsets.only(top: 12.0),
