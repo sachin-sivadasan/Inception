@@ -16,7 +16,9 @@ class _UnitCardViewState extends State<UnitCardView> {
     Widget renderTitle() {
       return Row(
         children: [
-          Container(margin: EdgeInsets.only(right: 5.0), child: Text('From')),
+          Container(
+              margin: EdgeInsets.only(right: 5.0),
+              child: Text(widget.model.from.toString())),
           Container(child: Text(widget.model.title)),
         ],
       );

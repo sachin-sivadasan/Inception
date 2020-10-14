@@ -13,36 +13,38 @@ class ConvertModel {
     print('$value $from converted to $bytes bytes');
     if (bytes <= BigInt.from(0))
       return <UnitModel>[
-        UnitModel('KB', '0'),
-        UnitModel('MB', '0'),
-        UnitModel('GB', '0')
+        UnitModel('KB', '0', from),
+        UnitModel('MB', '0', from),
+        UnitModel('GB', '0', from)
       ];
     var kb = toKB(bytes);
     var mb = toMB(bytes);
     var gb = toGB(bytes);
     return <UnitModel>[
-      UnitModel('Bytes', bytes.toString()),
-      UnitModel('KB', kb),
-      UnitModel('MB', mb),
-      UnitModel('GB', gb)
+      UnitModel('Bytes', bytes.toString(), from),
+      UnitModel('KB', kb, from),
+      UnitModel('MB', mb, from),
+      UnitModel('GB', gb, from)
     ];
   }
 
   String toSelectedConvertion() {
     var bytes = convertToBytes(value);
     print('$value $from converted to $bytes bytes');
-    if(to == 'KB') return toKB(bytes);
-    else if(to == 'MB') return toMB(bytes);
-    else if(to == 'GB') return toGB(bytes);
+    if (to == 'KB')
+      return toKB(bytes);
+    else if (to == 'MB')
+      return toMB(bytes);
+    else if (to == 'GB') return toGB(bytes);
     return '$value Bytes';
   }
 
   toGB(BigInt bytes) {
     try {
       if (bytes >= BigInt.from(1073741824))
-            return (bytes / BigInt.from(1073741824)).toStringAsFixed(2) + "";
-          else
-            return "0 GB";
+        return (bytes / BigInt.from(1073741824)).toStringAsFixed(2) + "";
+      else
+        return "0 GB";
     } catch (e) {
       print(e);
     }
@@ -68,10 +70,14 @@ class ConvertModel {
 
   convertToBytes(BigInt inBytes) {
     print(' $from -  $to');
-    if(from == 'KB') return fromKB(inBytes);
-    else if(from == 'MB') return fromMB(inBytes);
-    else if(from == 'GB') return fromGB(inBytes);
-    else return inBytes;
+    if (from == 'KB')
+      return fromKB(inBytes);
+    else if (from == 'MB')
+      return fromMB(inBytes);
+    else if (from == 'GB')
+      return fromGB(inBytes);
+    else
+      return inBytes;
   }
 
   fromKB(BigInt bytes) {

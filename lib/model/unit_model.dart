@@ -1,4 +1,4 @@
 class UnitModel {
-  final String title, result;
-  UnitModel(this.title, this.result);
+  final String title, result, from;
+  UnitModel(this.title, this.result, this.from);
 }
