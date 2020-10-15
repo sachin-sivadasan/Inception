@@ -17,7 +17,10 @@ class ResultText extends StatelessWidget {
         alignment: Alignment.center,
         child: Container(
           padding: EdgeInsets.only(left: 8, right: 8, top: 20, bottom: 20),
-          child: Text(value),
+          child: Text(
+            value,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );

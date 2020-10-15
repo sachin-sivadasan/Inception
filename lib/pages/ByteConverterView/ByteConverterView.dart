@@ -31,26 +31,36 @@ class _ConverterViewState extends State<ConverterView> {
     if (_results.isEmpty) return Container();
 
     return Container(
-      padding: EdgeInsets.all(20.0),
       margin: EdgeInsets.only(top: 10.0),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), color: Colors.white),
-      child: ListView.builder(
-        shrinkWrap: true,
-        // padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-        itemCount: _results.length,
-        scrollDirection: Axis.vertical,
-        itemBuilder: (BuildContext context, int index) {
-          return GestureDetector(
-            onTap: () {
-              setState(() {
-                _selectedTypeTo = _results[index].title;
-                calculateResult();
-              });
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text('See Also',
+                  style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white))
+            ],
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: _results.length,
+            scrollDirection: Axis.vertical,
+            itemBuilder: (BuildContext context, int index) {
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _selectedTypeTo = _results[index].title;
+                    calculateResult();
+                  });
+                },
+                child: UnitCardView(_results[index]),
+              );
             },
-            child: UnitCardView(_results[index]),
-          );
-        },
+          )
+        ],
       ),
     );
   }
@@ -74,13 +84,15 @@ class _ConverterViewState extends State<ConverterView> {
     final _media = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
+          shadowColor: Colors.transparent,
+          backgroundColor: Colors.deepPurple[800],
           title: Text('Byte Converter'),
         ),
         body: Container(
           padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
           decoration: BoxDecoration(
               gradient: LinearGradient(
-                  colors: [Colors.indigo[900], Colors.blue[800]],
+                  colors: [Colors.deepPurple[800], Colors.deepPurple[700]],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter)),
           child: Column(

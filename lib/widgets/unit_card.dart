@@ -18,8 +18,15 @@ class _UnitCardViewState extends State<UnitCardView> {
         children: [
           Container(
               margin: EdgeInsets.only(right: 5.0),
-              child: Text(widget.model.from.toString())),
-          Container(child: Text(widget.model.title)),
+              child: Text(
+                '${widget.model.from.toString().toUpperCase()} TO',
+                style: TextStyle(fontSize: 16.0),
+              )),
+          Container(
+              child: Text(
+            '${widget.model.title.toString().toUpperCase()}',
+            style: TextStyle(fontSize: 16.0),
+          )),
         ],
       );
     }
@@ -28,17 +35,16 @@ class _UnitCardViewState extends State<UnitCardView> {
       return Container(
         alignment: Alignment.center,
         margin: EdgeInsets.only(top: 5.0),
-        child: Text(widget.model.result),
+        child: Text(
+          widget.model.result,
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       );
     }
 
     var boxDecoration = BoxDecoration(
         borderRadius: BorderRadius.circular(6.0),
-        color: Colors.blue[100],
-        gradient: LinearGradient(
-            colors: [Colors.blue[100], Colors.blue[300]],
-            begin: Alignment.bottomLeft,
-            end: Alignment.bottomRight),
+        color: Colors.white,
         boxShadow: [
           BoxShadow(
             blurRadius: 5,
