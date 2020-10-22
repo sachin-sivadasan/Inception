@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:inception/pages/AddPooja/add_pooja.dart';
 import 'package:inception/pages/CurrencyView/currency_converter_view.dart';
 import './pages/SplashScreen/SplashScreen.dart';
 import './pages/LandingView/LandingView.dart';
 import './pages/SettingsView/SettingsView.dart';
 import './pages/ByteConverterView/ByteConverterView.dart';
+import 'pages/AddPooja/add_new_pooja.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,6 +24,8 @@ class MyApp extends StatelessWidget {
         '/converter': (context) => ConverterView(),
         '/currency': (context) => CurrencyConverterView(),
         '/settings': (context) => SettingsView(),
+        '/add': (context) => AddPooja(),
+        '/addPooja': (context) => AddNewPooja()
       },
     );
   }

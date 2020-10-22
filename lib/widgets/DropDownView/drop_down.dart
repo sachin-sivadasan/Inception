@@ -14,7 +14,7 @@ class DropDownView extends StatefulWidget {
 }
 
 class _DropDownViewState extends State<DropDownView> {
-  List<DropdownMenuItem<String>> _dropdownItems;
+  List<DropdownMenuItem<String>> _dropdownItems  = new List();
 
   List<DropdownMenuItem<String>> getDropDownItems() {
     List<DropdownMenuItem<String>> items = new List();
@@ -28,12 +28,13 @@ class _DropDownViewState extends State<DropDownView> {
 
   @override
   void initState() {
-    _dropdownItems = getDropDownItems();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    print("building2....");
+    _dropdownItems = getDropDownItems();
     return Container(
       height: 50,
       decoration: BoxDecoration(

@@ -11,6 +11,14 @@ class LandingView extends StatelessWidget {
     Navigator.pushNamed(ctx, '/currency');
   }
 
+  goToAddView(BuildContext ctx) {
+    Navigator.pushNamed(ctx, '/add');
+  }
+
+  goToAddNewView(BuildContext ctx) {
+    Navigator.pushNamed(ctx, '/addPooja');
+  }
+
   launchSettings(BuildContext context) {
     Navigator.pushNamed(context, '/settings');
   }
@@ -28,6 +36,8 @@ class LandingView extends StatelessWidget {
   Widget build(BuildContext context) {
     var button = Button(() => goTo(context), 'I am a component', 'elivated');
     var currencyButton = Button(() => goToCurrencyView(context), 'Currency Converter', 'elivated');
+    var addButton = Button(() => goToAddView(context), 'Currency Converter', 'elivated');
+    var addPoojaButton = Button(() => goToAddNewView(context), 'Add', 'elivated');
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Sweet Home'),
@@ -39,7 +49,7 @@ class LandingView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [button, currencyButton],
+            children: [button, currencyButton, addButton, addPoojaButton],
           ),
         ),
       ),

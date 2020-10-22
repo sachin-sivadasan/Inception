@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:inception/model/pooja_detail.dart';
 import 'package:inception/network/firebase_api.dart';
 import 'package:inception/widgets/DropDownView/drop_down.dart';
 import 'package:inception/widgets/TextBar/TextBar.dart';
@@ -22,6 +23,7 @@ class _CurrencyConverterViewState extends State<CurrencyConverterView> {
         _query = value;
       });
     });
+//    FirebaseAPI.addPooja(PoojaDetail("ss", "poojaC", "15-10-2020", "100"));
     super.initState();
   }
 
