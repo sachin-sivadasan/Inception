@@ -69,9 +69,12 @@ class _ConverterViewState extends State<ConverterView> {
     final _media = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.purple[800],
+          shadowColor: Colors.transparent,
           title: Text('Byte Converter'),
         ),
         body: Container(
+          color: Colors.purple[800],
           child: Column(
             children: [
               Container(
