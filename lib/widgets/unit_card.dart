@@ -34,11 +34,7 @@ class _UnitCardViewState extends State<UnitCardView> {
 
     var boxDecoration = BoxDecoration(
         borderRadius: BorderRadius.circular(6.0),
-        color: Colors.blue[100],
-        gradient: LinearGradient(
-            colors: [Colors.blue[100], Colors.blue[300]],
-            begin: Alignment.bottomLeft,
-            end: Alignment.bottomRight),
+        color: Colors.white,
         boxShadow: [
           BoxShadow(
             blurRadius: 5,
