@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "133940522831",
+    "firebase_url": "https://byteconverter-4f404.firebaseio.com",
+    "project_id": "byteconverter-4f404",
+    "storage_bucket": "byteconverter-4f404.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133940522831:android:bda004d71058f822c6df3a",
+        "android_client_info": {
+          "package_name": "com.codebreaker.inception"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133940522831-85it126pfqli7ofnmdmp4ffn0b69vi51.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codebreaker.inception",
+            "certificate_hash": "1ecb2850fbbacc021ecfbcf017a8b190be585fbf"
+          }
+        },
+        {
+          "client_id": "133940522831-egffmbrrv2kqm6n7bpmtmleft8gqqb9p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzzYaFd9RbzYrXBx1JgqmNVgpgpV4__aY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133940522831-egffmbrrv2kqm6n7bpmtmleft8gqqb9p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
