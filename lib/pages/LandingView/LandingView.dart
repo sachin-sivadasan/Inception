@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/Button/button.dart';
 import '../../widgets/ImageButton/image_button.dart';
+import '../../Transform/Transform.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 
 class LandingView extends StatelessWidget {
@@ -10,6 +11,7 @@ class LandingView extends StatelessWidget {
     fir.logEvent(name: 'purushu', parameters: {'sachin': 'karunahapally'});
     Navigator.pushNamed(ctx, '/converter');
   }
+
   goToCurrencyView(BuildContext ctx) {
     Navigator.pushNamed(ctx, '/currency');
   }
@@ -30,13 +32,16 @@ class LandingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var button = Button(() => goTo(context), 'I am a component', 'elivated');
-    var currencyButton = Button(() => goToCurrencyView(context), 'Currency Converter', 'elivated');
+    var currencyButton = Button(
+        () => goToCurrencyView(context), 'Currency Converter', 'elivated');
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Sweet Home'),
         actions: [settingsAction(context)],
       ),
       body: Container(
+        // color: HexColor.getColor('5F00F8'),
+        color: '5F00F8'.toHexColor(),
         padding: EdgeInsets.all(16.0),
         child: Center(
           child: Column(
