@@ -11,6 +11,7 @@ class LandingView extends StatelessWidget {
     fir.logEvent(name: 'purushu', parameters: {'sachin': 'karunahapally'});
     Navigator.pushNamed(ctx, '/converter');
   }
+
   goToCurrencyView(BuildContext ctx) {
     Navigator.pushNamed(ctx, '/currency');
   }
@@ -31,7 +32,8 @@ class LandingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var button = Button(() => goTo(context), 'I am a component', 'elivated');
-    var currencyButton = Button(() => goToCurrencyView(context), 'Currency Converter', 'elivated');
+    var currencyButton = Button(
+        () => goToCurrencyView(context), 'Currency Converter', 'elivated');
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Sweet Home'),
@@ -39,9 +41,9 @@ class LandingView extends StatelessWidget {
       ),
       body: Container(
         // color: HexColor.getColor('5F00F8'),
-        color: '5F00F8'.toHexColor(),
+        color: '7F00F8'.toHexColor(opacity: 12),
         padding: EdgeInsets.all(16.0),
-        child: Center(
+        child: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
