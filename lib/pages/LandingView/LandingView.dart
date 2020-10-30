@@ -40,8 +40,7 @@ class LandingView extends StatelessWidget {
         actions: [settingsAction(context)],
       ),
       body: Container(
-        // color: HexColor.getColor('5F00F8'),
-        color: '7F00F8'.toHexColor(opacity: 12),
+        color: '7F00F8'.toHexColor(),
         padding: EdgeInsets.all(16.0),
         child: Container(
           child: Column(
