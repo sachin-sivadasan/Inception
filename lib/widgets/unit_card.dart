@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inception/model/unit_model.dart';
+import '../Transform/Transform.dart';
 
 class UnitCardView extends StatefulWidget {
   UnitModel model;
@@ -14,39 +15,51 @@ class _UnitCardViewState extends State<UnitCardView> {
   @override
   Widget build(BuildContext context) {
     Widget renderTitle() {
-      return Row(
-        children: [
-          Container(
-              margin: EdgeInsets.only(right: 5.0),
-              child: Text(widget.model.from.toString())),
-          Container(child: Text(widget.model.title)),
-        ],
-      );
+      return Container(
+          margin: EdgeInsets.only(right: 5.0),
+          child: Text(
+              widget.model.from.toUpperCase() +
+                  ' TO ' +
+                  widget.model.title.toUpperCase(),
+              style: TextStyle(color: Colors.white)));
     }
 
     Container renderResult() {
       return Container(
-        alignment: Alignment.center,
         margin: EdgeInsets.only(top: 5.0),
-        child: Text(widget.model.result),
+        child: Text(
+          widget.model.from + ' = ' + widget.model.result,
+          style: TextStyle(
+              fontSize: 17, fontWeight: FontWeight.bold, color: Colors.white),
+        ),
       );
     }
 
     var boxDecoration = BoxDecoration(
-        borderRadius: BorderRadius.circular(6.0),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 5,
-            color: Colors.black38,
-          ),
-        ]);
+      borderRadius: BorderRadius.circular(40.0),
+      border: Border.all(width: 1, color: '#3D24A9'.toHexColor()),
+      color: Colors.white,
+      gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          stops: [
+            0.3,
+            0.85,
+            1.0,
+          ],
+          colors: [
+            '#2E3094'.toHexColor(),
+            '#2D1398'.toHexColor(),
+            '#32179F'.toHexColor()
+          ]),
+    );
 
     return Container(
       margin: EdgeInsets.only(top: 10.0),
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(30),
       decoration: boxDecoration,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [renderTitle(), renderResult()],
       ),
     );

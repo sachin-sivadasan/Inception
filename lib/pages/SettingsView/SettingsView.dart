@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../widgets/Button/button.dart';
+import '../../Transform/Transform.dart';
 
 class SettingsView extends StatelessWidget {
   // click listener for share button.
@@ -47,9 +48,12 @@ class SettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: '#2D198F'.toHexColor(),
+        shadowColor: Colors.transparent,
         title: Text('Settings'),
       ),
       body: Container(
+        color: '#2D198F'.toHexColor(),
         padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

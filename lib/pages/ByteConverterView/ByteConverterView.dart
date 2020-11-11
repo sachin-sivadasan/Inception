@@ -5,6 +5,7 @@ import 'package:inception/widgets/DropDownView/drop_down.dart';
 import 'package:inception/widgets/result_text.dart';
 import 'package:inception/widgets/unit_card.dart';
 import '../../widgets/TextBar/TextBar.dart';
+import '../../Transform/Transform.dart';
 
 class ConverterView extends StatefulWidget {
   @override
@@ -69,12 +70,12 @@ class _ConverterViewState extends State<ConverterView> {
     final _media = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.purple[800],
+          backgroundColor: '#2D198F'.toHexColor(),
           shadowColor: Colors.transparent,
           title: Text('Byte Converter'),
         ),
         body: Container(
-          color: Colors.purple[800],
+          color: '#2D198F'.toHexColor(),
           child: Column(
             children: [
               Container(

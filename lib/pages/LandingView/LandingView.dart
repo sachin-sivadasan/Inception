@@ -35,12 +35,27 @@ class LandingView extends StatelessWidget {
     var currencyButton = Button(
         () => goToCurrencyView(context), 'Currency Converter', 'elivated');
     return Scaffold(
+      // drawer: Container(
+      //   color: Colors.white,
+      //   child: Column(
+      //     crossAxisAlignment: CrossAxisAlignment.stretch,
+      //     children: [
+      //       Container(
+      //         height: 200,
+      //         color: Colors.blueAccent[700],
+      //         child: Text('dsdsdds dgfgs gsgs  gsddsd'),
+      //       ),
+      //     ],
+      //   ),
+      // ),
       appBar: AppBar(
         title: Text('Home Sweet Home'),
         actions: [settingsAction(context)],
+        backgroundColor: '#2D198F'.toHexColor(),
+        shadowColor: Colors.transparent,
       ),
       body: Container(
-        color: '7F00F8'.toHexColor(),
+        color: '#2D198F'.toHexColor(),
         padding: EdgeInsets.all(16.0),
         child: Container(
           child: Column(
