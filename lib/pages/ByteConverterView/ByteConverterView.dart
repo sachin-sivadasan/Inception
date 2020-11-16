@@ -65,6 +65,40 @@ class _ConverterViewState extends State<ConverterView> {
     });
   }
 
+  Widget getToColapsedView() {
+    return Container(
+      padding: EdgeInsets.only(left: 20),
+      foregroundDecoration: BoxDecoration(
+        border: Border.all(width: 2, color: Colors.white),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'convert to $_selectedTypeTo',
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+            IntrinsicWidth(
+              child: DropDownView(
+                  entries: entries,
+                  selected: _selectedTypeTo,
+                  onItemSelected: (value) {
+                    setState(() {
+                      _selectedTypeTo = value;
+                      calculateResult();
+                    });
+                  }),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final _media = MediaQuery.of(context).size;
@@ -89,20 +123,11 @@ class _ConverterViewState extends State<ConverterView> {
                             option: _currentValue.toString(),
                             leftText: 'From')),
                     Container(
-                        margin: EdgeInsets.only(top: 40),
-                        child: DropDownView(
-                            bgColor: Colors.grey.shade200,
-                            entries: entries,
-                            selected: _selectedTypeTo,
-                            onItemSelected: (value) {
-                              setState(() {
-                                _selectedTypeTo = value;
-                                calculateResult();
-                              });
-                            })),
+                        margin: EdgeInsets.only(top: 10),
+                        child: getToColapsedView()),
                     Container(
                       width: _media.width,
-                      margin: EdgeInsets.only(top: 12.0),
+                      margin: EdgeInsets.only(top: 25.0),
                       child: ResultText(_currentResult),
                     ),
                   ],

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:inception/model/conver_model.dart';
 import 'package:inception/widgets/DropDownView/drop_down.dart';
 
 class TextBar extends StatelessWidget {
@@ -15,18 +14,15 @@ class TextBar extends StatelessWidget {
     print('option $option, type $type');
     if (option == null) return Container();
     return Container(
-      margin: EdgeInsets.only(left: 10.0),
       child: IntrinsicWidth(
-        child: DropDownView(
-          bgColor: Colors.grey.shade200,
-          entries: entries,
-          onItemSelected: (value) {
-            print('on item selected $value $option');
-            onSelectItem(value, option);
-          },
-          selected: type,
-        ),
-      ),
+          child: DropDownView(
+        entries: entries,
+        onItemSelected: (value) {
+          print('on item selected $value $option');
+          onSelectItem(value, option);
+        },
+        selected: type,
+      )),
     );
   }
 
@@ -49,10 +45,6 @@ class TextBar extends StatelessWidget {
     return Expanded(
       child: Container(
         padding: EdgeInsets.only(left: 15.0),
-        decoration: BoxDecoration(
-          color: Colors.grey[200],
-          borderRadius: BorderRadius.circular(6.0),
-        ),
         child: Row(children: [
           leftLabel(),
           Expanded(
@@ -60,6 +52,7 @@ class TextBar extends StatelessWidget {
               child: TextField(
                 decoration: InputDecoration(
                     hintText: 'Enter value',
+                    hintStyle: TextStyle(fontSize: 16, color: Colors.white54),
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     enabledBorder: InputBorder.none,
@@ -67,7 +60,9 @@ class TextBar extends StatelessWidget {
                     disabledBorder: InputBorder.none),
                 // keyboardType: TextInputType.phone,
                 textInputAction: TextInputAction.done,
-                style: TextStyle(fontSize: 16, color: Colors.black87),
+                style: TextStyle(fontSize: 16, color: Colors.white),
+                cursorColor: Colors.white,
+
                 onChanged: (changed) {
                   print('changed to $changed');
                   onSelectItem(type, changed);
@@ -84,10 +79,18 @@ class TextBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(0),
-      child: Container(
-        height: 50.0,
-        child: Row(
-          children: [textBox(), getOptionWidget()],
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(22),
+        child: Container(
+          foregroundDecoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(22),
+            border: Border.all(
+                width: 2, style: BorderStyle.solid, color: Colors.white),
+          ),
+          height: 50.0,
+          child: Row(
+            children: [textBox(), getOptionWidget()],
+          ),
         ),
       ),
     );

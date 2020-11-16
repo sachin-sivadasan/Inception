@@ -36,7 +36,7 @@ class _UnitCardViewState extends State<UnitCardView> {
     }
 
     var boxDecoration = BoxDecoration(
-      borderRadius: BorderRadius.circular(40.0),
+      borderRadius: BorderRadius.circular(30.0),
       border: Border.all(width: 1, color: '#3D24A9'.toHexColor()),
       color: Colors.white,
       gradient: LinearGradient(
@@ -56,7 +56,7 @@ class _UnitCardViewState extends State<UnitCardView> {
 
     return Container(
       margin: EdgeInsets.only(top: 10.0),
-      padding: EdgeInsets.all(30),
+      padding: EdgeInsets.only(left: 30, top: 20, bottom: 20, right: 20),
       decoration: boxDecoration,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
