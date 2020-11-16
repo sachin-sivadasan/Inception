@@ -67,7 +67,7 @@ class _ConverterViewState extends State<ConverterView> {
 
   Widget getToColapsedView() {
     return Container(
-      padding: EdgeInsets.only(left: 20),
+      padding: EdgeInsets.only(left: 15),
       foregroundDecoration: BoxDecoration(
         border: Border.all(width: 2, color: Colors.white),
         borderRadius: BorderRadius.circular(20),
