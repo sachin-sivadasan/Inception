@@ -4,10 +4,16 @@ import 'package:inception/widgets/DropDownView/drop_down.dart';
 
 class TextBar extends StatelessWidget {
   final Function(String, String) onSelectItem;
+  final Function(String, String) onChnageText;
   final leftText;
   String option = '';
   String type = '';
-  TextBar({this.onSelectItem, this.type, this.option, this.leftText});
+  TextBar(
+      {this.onSelectItem,
+      this.type,
+      this.option,
+      this.leftText,
+      this.onChnageText});
 
   List<String> entries = <String>['Bytes', 'KB', 'MB', 'GB'];
   Widget getOptionWidget() {
@@ -15,14 +21,15 @@ class TextBar extends StatelessWidget {
     if (option == null) return Container();
     return Container(
       child: IntrinsicWidth(
-          child: DropDownView(
-        entries: entries,
-        onItemSelected: (value) {
-          print('on item selected $value $option');
-          onSelectItem(value, option);
-        },
-        selected: type,
-      )),
+        child: DropDownView(
+          entries: entries,
+          onItemSelected: (value) {
+            print('on item selected $value $option');
+            onSelectItem(value, option);
+          },
+          selected: type,
+        ),
+      ),
     );
   }
 
@@ -45,6 +52,7 @@ class TextBar extends StatelessWidget {
     return Expanded(
       child: Container(
         padding: EdgeInsets.only(left: 15.0),
+        margin: EdgeInsets.only(right: 5),
         child: Row(children: [
           leftLabel(),
           Expanded(
@@ -65,7 +73,7 @@ class TextBar extends StatelessWidget {
 
                 onChanged: (changed) {
                   print('changed to $changed');
-                  onSelectItem(type, changed);
+                  onChnageText(type, changed);
                 },
               ),
             ),

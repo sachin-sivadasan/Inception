@@ -36,7 +36,7 @@ class ConvertModel {
     else if (to == 'MB')
       return toMB(bytes);
     else if (to == 'GB') return toGB(bytes);
-    return '$value Bytes';
+    return '$bytes Bytes';
   }
 
   toGB(BigInt bytes) {

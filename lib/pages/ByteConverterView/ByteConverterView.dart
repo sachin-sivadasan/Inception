@@ -21,6 +21,7 @@ class _ConverterViewState extends State<ConverterView> {
   List<UnitModel> _results = <UnitModel>[];
 
   onPressOption(String type, String value) {
+    value = value.isEmpty ? '0' : value;
     this.setState(() {
       _selectedTypeFrom = type;
       _currentValue = BigInt.from(int.parse(value));
@@ -28,8 +29,21 @@ class _ConverterViewState extends State<ConverterView> {
     });
   }
 
+  Widget getResultView() {
+    if (_results.isEmpty ||
+        _currentValue == null ||
+        _currentValue.toString() == '0') {
+      return Container();
+    }
+    return ResultText(_currentResult);
+  }
+
   Widget listView() {
-    if (_results.isEmpty) return Container();
+    if (_results.isEmpty ||
+        _currentValue == null ||
+        _currentValue.toString() == '0') {
+      return Container();
+    }
 
     return Container(
       child: ListView.builder(
@@ -59,6 +73,7 @@ class _ConverterViewState extends State<ConverterView> {
         ConvertModel(_currentValue, _selectedTypeFrom, _selectedTypeTo);
     String result = convertModel.toSelectedConvertion();
     List<UnitModel> allResults = convertModel.toAllConvertions();
+    print('result=======${convertModel.toSelectedConvertion()}');
     setState(() {
       _currentResult = result;
       _results = allResults;
@@ -117,18 +132,20 @@ class _ConverterViewState extends State<ConverterView> {
                 child: Column(
                   children: [
                     Container(
-                        child: TextBar(
-                            onSelectItem: onPressOption,
-                            type: _selectedTypeFrom,
-                            option: _currentValue.toString(),
-                            leftText: 'From')),
+                      child: TextBar(
+                          onSelectItem: onPressOption,
+                          onChnageText: onPressOption,
+                          type: _selectedTypeFrom,
+                          option: _currentValue.toString(),
+                          leftText: 'From'),
+                    ),
                     Container(
                         margin: EdgeInsets.only(top: 10),
                         child: getToColapsedView()),
                     Container(
                       width: _media.width,
                       margin: EdgeInsets.only(top: 25.0),
-                      child: ResultText(_currentResult),
+                      child: getResultView(),
                     ),
                   ],
                 ),
