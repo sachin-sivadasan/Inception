@@ -31,18 +31,16 @@ class ConvertModel {
   String toSelectedConvertion() {
     var bytes = convertToBytes(value);
     print('$value $from converted to $bytes bytes');
-    if (to == 'KB')
-      return toKB(bytes);
-    else if (to == 'MB')
-      return toMB(bytes);
-    else if (to == 'GB') return toGB(bytes);
+    if (to == 'KB') return toKB(bytes);
+    if (to == 'MB') return toMB(bytes);
+    if (to == 'GB') return toGB(bytes);
     return '$bytes Bytes';
   }
 
   toGB(BigInt bytes) {
     try {
-      if (bytes >= BigInt.from(1073741824))
-        return (bytes / BigInt.from(1073741824)).toStringAsFixed(2) + "";
+      if (bytes > BigInt.from(0))
+        return (bytes / BigInt.from(1073741824)).toString() + "";
       else
         return "0 GB";
     } catch (e) {
@@ -51,15 +49,15 @@ class ConvertModel {
   }
 
   toMB(BigInt bytes) {
-    if (bytes >= BigInt.from(1048576))
-      return (bytes / BigInt.from(1048576)).toStringAsFixed(2) + "";
+    if (bytes > BigInt.from(0))
+      return (bytes / BigInt.from(1048576)).toString() + "";
     else
       return "0 MB";
   }
 
   toKB(BigInt bytes) {
-    if (bytes >= BigInt.from(1024))
-      return (bytes / BigInt.from(1024)).toStringAsFixed(2) + "";
+    if (bytes > BigInt.from(0))
+      return (bytes / BigInt.from(1024)).toString() + "";
     else
       return "0";
   }
