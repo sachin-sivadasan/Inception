@@ -137,7 +137,8 @@ class _ConverterViewState extends State<ConverterView> {
                           onChnageText: onPressOption,
                           type: _selectedTypeFrom,
                           option: _currentValue.toString(),
-                          leftText: 'From'),
+                          leftText: 'From',
+                          keyboard: TextInputType.phone),
                     ),
                     Container(
                         margin: EdgeInsets.only(top: 10),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'dart:io' show Platform;
 import 'package:inception/widgets/DropDownView/drop_down.dart';
 
 class TextBar extends StatelessWidget {
@@ -8,12 +9,14 @@ class TextBar extends StatelessWidget {
   final leftText;
   String option = '';
   String type = '';
+  TextInputType keyboard = TextInputType.phone;
   TextBar(
       {this.onSelectItem,
       this.type,
       this.option,
       this.leftText,
-      this.onChnageText});
+      this.onChnageText,
+      this.keyboard});
 
   List<String> entries = <String>['Bytes', 'KB', 'MB', 'GB'];
   Widget getOptionWidget() {
@@ -66,11 +69,11 @@ class TextBar extends StatelessWidget {
                     enabledBorder: InputBorder.none,
                     errorBorder: InputBorder.none,
                     disabledBorder: InputBorder.none),
-                // keyboardType: TextInputType.phone,
+                keyboardType:
+                    Platform.isIOS ? TextInputType.values : TextInputType.phone,
                 textInputAction: TextInputAction.done,
                 style: TextStyle(fontSize: 16, color: Colors.white),
                 cursorColor: Colors.white,
-
                 onChanged: (changed) {
                   print('changed to $changed');
                   onChnageText(type, changed);
