@@ -31,7 +31,8 @@ class LandingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var button = Button(() => goTo(context), 'I am a component', 'elivated');
+    var memoryButton =
+        Button(() => goTo(context), 'Memory Converter', 'elivated');
     var currencyButton = Button(
         () => goToCurrencyView(context), 'Currency Converter', 'elivated');
     return Scaffold(
@@ -61,7 +62,7 @@ class LandingView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [button, currencyButton],
+            children: [memoryButton, currencyButton],
           ),
         ),
       ),
