@@ -69,8 +69,9 @@ class TextBar extends StatelessWidget {
                     enabledBorder: InputBorder.none,
                     errorBorder: InputBorder.none,
                     disabledBorder: InputBorder.none),
-                keyboardType:
-                    Platform.isIOS ? TextInputType.values : TextInputType.phone,
+                keyboardType: Platform.isIOS
+                    ? TextInputType.datetime
+                    : TextInputType.phone,
                 textInputAction: TextInputAction.done,
                 style: TextStyle(fontSize: 16, color: Colors.white),
                 cursorColor: Colors.white,
