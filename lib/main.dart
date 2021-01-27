@@ -25,14 +25,14 @@ class MyApp extends StatelessWidget {
     FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
     FirebaseAnalytics().setAnalyticsCollectionEnabled(true);
     return MaterialApp(
-      title: 'Flutter Demo',
-      home: LandingView(),
+      title: 'Converter App',
+      home: ConverterView(),
       navigatorObservers: [FirebaseAnalyticsObserver(analytics: analytics)],
       routes: {
-        '/landingView': (context) => LandingView(),
-        '/converter': (context) => ConverterView(),
-        '/currency': (context) => CurrencyConverterView(),
-        '/settings': (context) => SettingsView(),
+        // '/landingView': (context) => LandingView(),
+        // '/converter': (context) => ConverterView(),
+        // '/currency': (context) => CurrencyConverterView(),
+        // '/settings': (context) => SettingsView(),
       },
     );
   }
