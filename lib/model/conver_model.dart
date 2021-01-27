@@ -15,16 +15,19 @@ class ConvertModel {
       return <UnitModel>[
         UnitModel('KB', '0', from),
         UnitModel('MB', '0', from),
-        UnitModel('GB', '0', from)
+        UnitModel('GB', '0', from),
+        // UnitModel('TB', '0', from)
       ];
     var kb = toKB(bytes);
     var mb = toMB(bytes);
     var gb = toGB(bytes);
+    // var tb = toTB(bytes);
     return <UnitModel>[
       UnitModel('Bytes', bytes.toString(), from),
       UnitModel('KB', kb, from),
       UnitModel('MB', mb, from),
-      UnitModel('GB', gb, from)
+      UnitModel('GB', gb, from),
+      // UnitModel('TB', tb, from),
     ];
   }
 
@@ -34,8 +37,21 @@ class ConvertModel {
     if (to == 'KB') return toKB(bytes);
     if (to == 'MB') return toMB(bytes);
     if (to == 'GB') return toGB(bytes);
+    // if (to == 'TB') return toTB(bytes);
     return '$bytes Bytes';
   }
+
+  // toTB(BigInt bytes) {
+  //   try {
+  //     if (bytes > BigInt.from(0)) {
+  //       BigInt gb = BigInt.from(bytes / BigInt.from(1073741824));
+  //       return (gb / BigInt.from(1024)).toString() + "";
+  //     } else
+  //       return "0 GB";
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 
   toGB(BigInt bytes) {
     try {
@@ -74,6 +90,8 @@ class ConvertModel {
       return fromMB(inBytes);
     else if (from == 'GB')
       return fromGB(inBytes);
+    // else if (from == 'TB')
+    //   return fromTB(inBytes);
     else
       return inBytes;
   }
@@ -89,6 +107,12 @@ class ConvertModel {
   fromGB(BigInt bytes) {
     return bytes * BigInt.from(1024 * 1024 * 1024);
   }
+
+  // fromTB(BigInt bytes) {
+  //   print('to tb called');
+  //   print(BigInt.from(1024 * 1024 * 1024 * 1024));
+  //   return bytes * BigInt.from(1024 * 1024 * 1024 * 1024);
+  // }
 
 //  function formatSizeUnits(bytes){
 //    if      (bytes >= 1073741824) { bytes = (bytes / 1073741824).toFixed(2) + " GB"; }
