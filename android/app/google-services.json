@@ -8,6 +8,50 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:133940522831:android:526ae73c117c6b2ec6df3a",
+        "android_client_info": {
+          "package_name": "com.codebreaker.byteconverter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133940522831-gnvl6motfq1mns4vre67jglni8qmtcts.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codebreaker.byteconverter",
+            "certificate_hash": "1ecb2850fbbacc021ecfbcf017a8b190be585fbf"
+          }
+        },
+        {
+          "client_id": "133940522831-egffmbrrv2kqm6n7bpmtmleft8gqqb9p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzzYaFd9RbzYrXBx1JgqmNVgpgpV4__aY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133940522831-egffmbrrv2kqm6n7bpmtmleft8gqqb9p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "133940522831-c3cnkd5l8a340v27e94mmvt5ueqtui7n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.codebreaker.converter"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:133940522831:android:6f32b21148396d9ac6df3a",
         "android_client_info": {
           "package_name": "com.codebreaker.converter"
@@ -40,10 +84,10 @@
               "client_type": 3
             },
             {
-              "client_id": "133940522831-eg7ee5pknk5bj1j5s74qfcca94j555jp.apps.googleusercontent.com",
+              "client_id": "133940522831-c3cnkd5l8a340v27e94mmvt5ueqtui7n.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.codebreaker.byteconverter"
+                "bundle_id": "com.codebreaker.converter"
               }
             }
           ]
@@ -84,10 +128,10 @@
               "client_type": 3
             },
             {
-              "client_id": "133940522831-eg7ee5pknk5bj1j5s74qfcca94j555jp.apps.googleusercontent.com",
+              "client_id": "133940522831-c3cnkd5l8a340v27e94mmvt5ueqtui7n.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.codebreaker.byteconverter"
+                "bundle_id": "com.codebreaker.converter"
               }
             }
           ]
