@@ -17,7 +17,7 @@ class _ConverterViewState extends State<ConverterView> {
   String _selectedTypeFrom = 'Bytes';
   String _currentResult = '';
   String _selectedTypeTo = 'KB';
-  List<String> entries = <String>['Bytes', 'KB', 'MB', 'GB'];
+  List<String> entries = <String>['Bytes', 'KB', 'MB', 'GB', 'TB'];
   List<UnitModel> _results = <UnitModel>[];
 
   onPressOption(String type, String value) {

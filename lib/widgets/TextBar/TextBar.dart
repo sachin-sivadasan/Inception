@@ -18,7 +18,7 @@ class TextBar extends StatelessWidget {
       this.onChnageText,
       this.keyboard});
 
-  List<String> entries = <String>['Bytes', 'KB', 'MB', 'GB'];
+  List<String> entries = <String>['Bytes', 'KB', 'MB', 'GB', 'TB'];
   Widget getOptionWidget() {
     print('option $option, type $type');
     if (option == null) return Container();
