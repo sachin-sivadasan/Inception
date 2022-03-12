@@ -3,8 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../widgets/Button/button.dart';
+
 import '../../Transform/Transform.dart';
+import '../../widgets/Button/button.dart';
 
 class SettingsView extends StatelessWidget {
   // click listener for share button.

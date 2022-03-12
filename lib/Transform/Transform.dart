@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 extension HexColor on String {
-  Color toHexColor({int opacity}) {
+  Color toHexColor({int? opacity}) {
     assert((opacity == null || opacity <= 10 && opacity >= 0),
         'opacity range should be in 0 - 10');
     var hex = this.length <= 7 && opacity == null ? 'FF' : '';

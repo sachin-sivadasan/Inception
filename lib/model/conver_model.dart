@@ -18,12 +18,13 @@ class ConvertModel {
         UnitModel('GB', '0', from),
         UnitModel('TB', '0', from)
       ];
+    var byte = toByte(bytes);
     var kb = toKB(bytes);
     var mb = toMB(bytes);
     var gb = toGB(bytes);
     var tb = toTB(bytes);
     return <UnitModel>[
-      UnitModel('Bytes', bytes.toString(), from),
+      UnitModel('Bytes', byte, from),
       UnitModel('KB', kb, from),
       UnitModel('MB', mb, from),
       UnitModel('GB', gb, from),
@@ -31,14 +32,14 @@ class ConvertModel {
     ];
   }
 
-  String toSelectedConvertion() {
+  String convert() {
     var bytes = convertToBytes(value);
     print('$value $from converted to $bytes bytes');
     if (to == 'KB') return toKB(bytes);
     if (to == 'MB') return toMB(bytes);
     if (to == 'GB') return toGB(bytes);
     if (to == 'TB') return toTB(bytes);
-    return '$bytes Bytes';
+    return toByte(bytes);
   }
 
   toTB(BigInt bytes) {
@@ -55,14 +56,14 @@ class ConvertModel {
 
   toGB(BigInt bytes) {
     if (bytes > BigInt.from(0))
-      return (bytes / BigInt.from(1073741824)).toString() + " GB";
+      return (bytes / BigInt.from(1024 * 1024 * 1024)).toString() + " GB";
     else
       return "0 GB";
   }
 
   toMB(BigInt bytes) {
     if (bytes > BigInt.from(0))
-      return (bytes / BigInt.from(1048576)).toString() + " MB";
+      return (bytes / BigInt.from(1024 * 1024)).toString() + " MB";
     else
       return "0 MB";
   }
@@ -75,38 +76,52 @@ class ConvertModel {
   }
 
   toByte(BigInt bytes) {
-    return (bytes).toString() + " Byte";
+    if (bytes > BigInt.from(0))
+      return (bytes / BigInt.from(1)).toString() + " Bytes";
+    else
+      return "0 Bytes";
   }
 
-  convertToBytes(BigInt currentValue) {
+  BigInt convertToBytes(BigInt currentValue) {
     print(' $from -  $to');
     if (from == 'KB')
-      return fromKB(currentValue);
+      return kbToBytes(currentValue);
     else if (from == 'MB')
-      return fromMB(currentValue);
+      return mbToBytes(currentValue);
     else if (from == 'GB')
-      return fromGB(currentValue);
+      return gbToBytes(currentValue);
     else if (from == 'TB')
-      return fromTB(currentValue);
+      return tbToBytes(currentValue);
     else
       return currentValue;
   }
 
-  fromKB(BigInt currentValue) {
+  /*
+  * Convert KB to bytes
+  * */
+  BigInt kbToBytes(BigInt currentValue) {
     return currentValue * BigInt.from(1024);
   }
 
-  fromMB(BigInt currentValue) {
+  /*
+  * Convert MB to bytes
+  * */
+  BigInt mbToBytes(BigInt currentValue) {
     return currentValue * BigInt.from(1024 * 1024);
   }
 
-  fromGB(BigInt currentValue) {
+  /*
+  * Convert GB to bytes
+  * */
+  BigInt gbToBytes(BigInt currentValue) {
     return currentValue * BigInt.from(1024 * 1024 * 1024);
   }
 
-  fromTB(BigInt currentValue) {
+  /*
+  * Convert TB to bytes
+  * */
+  BigInt tbToBytes(BigInt currentValue) {
     print('to tb called');
     return currentValue * BigInt.from(1024 * 1024 * 1024 * 1024);
   }
-
 }

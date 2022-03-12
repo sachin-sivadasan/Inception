@@ -1,22 +1,24 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'dart:io' show Platform;
 import 'package:inception/widgets/DropDownView/drop_down.dart';
 
 class TextBar extends StatelessWidget {
-  final Function(String, String) onSelectItem;
-  final Function(String, String) onChnageText;
+  final Function(String, String)? onSelectItem;
+  final Function(String, String)? onChnageText;
   final leftText;
   String option = '';
   String type = '';
-  TextInputType keyboard = TextInputType.phone;
-  TextBar(
-      {this.onSelectItem,
-      this.type,
-      this.option,
-      this.leftText,
-      this.onChnageText,
-      this.keyboard});
+  TextInputType? keyboard = TextInputType.phone;
+  TextBar({
+    this.onSelectItem,
+    required this.type,
+    required this.option,
+    this.leftText,
+    this.onChnageText,
+    this.keyboard,
+  });
 
   List<String> entries = <String>['Bytes', 'KB', 'MB', 'GB', 'TB'];
   Widget getOptionWidget() {
@@ -28,7 +30,7 @@ class TextBar extends StatelessWidget {
           entries: entries,
           onItemSelected: (value) {
             print('on item selected $value $option');
-            onSelectItem(value, option);
+            onSelectItem?.call(value, option);
           },
           selected: type,
         ),
@@ -77,7 +79,7 @@ class TextBar extends StatelessWidget {
                 cursorColor: Colors.white,
                 onChanged: (changed) {
                   print('changed to $changed');
-                  onChnageText(type, changed);
+                  onChnageText?.call(type, changed);
                 },
               ),
             ),

@@ -1,13 +1,14 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../Transform/Transform.dart';
 import '../../widgets/Button/button.dart';
 import '../../widgets/ImageButton/image_button.dart';
-import '../../Transform/Transform.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
 
 class LandingView extends StatelessWidget {
   goTo(BuildContext ctx) {
-    var fir = FirebaseAnalytics();
+    var fir = FirebaseAnalytics.instance;
     fir.logEvent(name: 'purushu', parameters: {'sachin': 'karunahapally'});
     Navigator.pushNamed(ctx, '/converter');
   }

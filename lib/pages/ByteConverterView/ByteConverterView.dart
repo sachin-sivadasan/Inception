@@ -4,8 +4,9 @@ import 'package:inception/model/unit_model.dart';
 import 'package:inception/widgets/DropDownView/drop_down.dart';
 import 'package:inception/widgets/result_text.dart';
 import 'package:inception/widgets/unit_card.dart';
-import '../../widgets/TextBar/TextBar.dart';
+
 import '../../Transform/Transform.dart';
+import '../../widgets/TextBar/TextBar.dart';
 
 class ConverterView extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _ConverterViewState extends State<ConverterView> {
     value = value.isEmpty ? '0' : value;
     this.setState(() {
       _selectedTypeFrom = type;
-      _currentValue = BigInt.from(int.parse(value));
+      _currentValue = BigInt.parse(value);
       calculateResult();
     });
   }
@@ -71,9 +72,9 @@ class _ConverterViewState extends State<ConverterView> {
         'calculating result $_currentValue $_selectedTypeFrom $_selectedTypeTo');
     var convertModel =
         ConvertModel(_currentValue, _selectedTypeFrom, _selectedTypeTo);
-    String result = convertModel.toSelectedConvertion();
+    String result = convertModel.convert();
     List<UnitModel> allResults = convertModel.toAllConvertions();
-    print('result=======${convertModel.toSelectedConvertion()}');
+    print('result=======${convertModel.convert()}');
     setState(() {
       _currentResult = result;
       _results = allResults;

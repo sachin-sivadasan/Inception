@@ -1,29 +1,36 @@
 import 'package:flutter/material.dart';
+
 import '../../Transform/Transform.dart';
 
 class DropDownView extends StatefulWidget {
   final List<String> entries;
   final Function(String) onItemSelected;
   String selected;
-  Color bgColor;
+  Color? bgColor;
 
-  DropDownView(
-      {this.entries, this.onItemSelected, this.selected, this.bgColor});
+  DropDownView({
+    required this.entries,
+    required this.onItemSelected,
+    required this.selected,
+    this.bgColor,
+  });
 
   @override
   _DropDownViewState createState() => _DropDownViewState();
 }
 
 class _DropDownViewState extends State<DropDownView> {
-  List<DropdownMenuItem<String>> _dropdownItems;
+  List<DropdownMenuItem<String>>? _dropdownItems;
 
   List<DropdownMenuItem<String>> getDropDownItems() {
-    List<DropdownMenuItem<String>> items = new List();
+    List<DropdownMenuItem<String>> items = [];
     for (int i = 0; i < widget.entries.length; i++) {
       items.add(DropdownMenuItem(
-          value: widget.entries[i], child: new Text(widget.entries[i])));
+        value: widget.entries[i],
+        child: new Text(widget.entries[i]),
+      ));
     }
-    if (widget.selected.isEmpty) widget.selected = items[0].value;
+    if (widget.selected.isEmpty) widget.selected = items[0].value ?? '';
     return items;
   }
 
@@ -72,7 +79,7 @@ class _DropDownViewState extends State<DropDownView> {
     );
   }
 
-  BoxDecoration getBoxdecoration() {
+  BoxDecoration? getBoxdecoration() {
     if (widget.bgColor == null) return null;
     return BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -80,10 +87,12 @@ class _DropDownViewState extends State<DropDownView> {
         color: (widget.bgColor != null) ? widget.bgColor : null);
   }
 
-  void onItemSelected(String value) {
-    setState(() {
-      widget.selected = value;
-      widget.onItemSelected(value);
-    });
+  void onItemSelected(String? value) {
+    if (value != null) {
+      setState(() {
+        widget.selected = value;
+        widget.onItemSelected(value);
+      });
+    }
   }
 }
