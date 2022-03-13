@@ -8,14 +8,17 @@ import './pages/ByteConverterView/ByteConverterView.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp().whenComplete(() =>
-      {FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError});
+  await Firebase.initializeApp().whenComplete(
+    () => {
+      FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError,
+    },
+  );
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of Our application.
-  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  // This widget is the root of our application.
+  final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
 
   @override
   Widget build(BuildContext context) {
