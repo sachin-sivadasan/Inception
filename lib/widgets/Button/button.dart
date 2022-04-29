@@ -10,46 +10,58 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (type == 'texted') {
+      var textButton = TextButton(
+        onPressed: onpress,
+        child: Text(text),
+      );
       return Container(
-          child: IntrinsicWidth(
-              child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextButton(
-            onPressed: onpress,
-            child: Text(text),
+        padding: EdgeInsets.all(16.0),
+        child: IntrinsicWidth(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              textButton,
+            ],
           ),
-        ],
-      )));
+        ),
+      );
     }
 
     if (type == 'outlined') {
+      var outlinedButton = OutlinedButton(
+        onPressed: onpress,
+        child: Text(text),
+      );
       return Container(
-          child: IntrinsicWidth(
-              child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          OutlinedButton(
-            onPressed: onpress,
-            child: Text(text),
-          ),
-        ],
-      )));
-    }
-    return Container(
         padding: EdgeInsets.all(16.0),
         child: IntrinsicWidth(
-            child: Column(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              outlinedButton,
+            ],
+          ),
+        ),
+      );
+    }
+
+    var elevatedButton = ElevatedButton(
+      onPressed: onpress,
+      child: Text(text),
+    );
+    return Container(
+      padding: EdgeInsets.all(16.0),
+      child: IntrinsicWidth(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: onpress,
-              child: Text(text),
-            ),
+            elevatedButton,
           ],
-        )));
+        ),
+      ),
+    );
   }
 }
