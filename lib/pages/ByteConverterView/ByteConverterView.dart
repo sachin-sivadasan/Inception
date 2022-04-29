@@ -73,7 +73,7 @@ class _ConverterViewState extends State<ConverterView> {
     var convertModel =
         ConvertModel(_currentValue, _selectedTypeFrom, _selectedTypeTo);
     String result = convertModel.convert();
-    List<UnitModel> allResults = convertModel.toAllConvertions();
+    List<UnitModel> allResults = convertModel.performConvertAll();
     print('result=======${convertModel.convert()}');
     setState(() {
       _currentResult = result;
