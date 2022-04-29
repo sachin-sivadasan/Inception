@@ -32,7 +32,7 @@ class ConvertModel {
     ];
   }
 
-  String convert() {
+  String performConvert() {
     var bytes = convertToBytes(value);
     print('$value $from converted to $bytes bytes');
     if (to == 'KB') return toKB(bytes);

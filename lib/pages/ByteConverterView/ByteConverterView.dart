@@ -69,19 +69,23 @@ class _ConverterViewState extends State<ConverterView> {
   /* calculating result */
   calculateResult() {
     print(
-        'calculating result $_currentValue $_selectedTypeFrom $_selectedTypeTo');
-    var convertModel =
-        ConvertModel(_currentValue, _selectedTypeFrom, _selectedTypeTo);
-    String result = convertModel.convert();
-    List<UnitModel> allResults = convertModel.performConvertAll();
-    print('result=======${convertModel.convert()}');
+      'calculating result $_currentValue $_selectedTypeFrom $_selectedTypeTo',
+    );
+    var convertModel = ConvertModel(
+      _currentValue,
+      _selectedTypeFrom,
+      _selectedTypeTo,
+    );
+    String result = convertModel.performConvert();
+    List<UnitModel> results = convertModel.performConvertAll();
+    print('result=======$result');
     setState(() {
       _currentResult = result;
-      _results = allResults;
+      _results = results;
     });
   }
 
-  Widget getToColapsedView() {
+  Widget getToCollapsedView() {
     return Container(
       padding: EdgeInsets.only(left: 15),
       foregroundDecoration: BoxDecoration(
@@ -143,7 +147,7 @@ class _ConverterViewState extends State<ConverterView> {
                     ),
                     Container(
                         margin: EdgeInsets.only(top: 10),
-                        child: getToColapsedView()),
+                        child: getToCollapsedView()),
                     Container(
                       width: _media.width,
                       margin: EdgeInsets.only(top: 25.0),
