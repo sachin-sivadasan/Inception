@@ -3,8 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-import './pages/ByteConverterView/ByteConverterView.dart';
+import 'package:inception/pages/experiments/pages/Home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
     analytics.setAnalyticsCollectionEnabled(true);
     return MaterialApp(
       title: 'Converter App',
-      home: ConverterView(),
+      home: Home(),
       navigatorObservers: [FirebaseAnalyticsObserver(analytics: analytics)],
       routes: {
         // '/landingView': (context) => LandingView(),
